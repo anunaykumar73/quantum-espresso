@@ -9,9 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-            apt-get install -y libfftw3-3 libfftw3-dev libfftw3-doc libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev build-essential
-            wget https://www.kernel.org/pub/software/scm/git/git-2.36.1.tar.gz
-            cd git-2.36.1 && make prefix=/usr install install-doc install-html install-info
-            cd ..
+            apt-get install -y libfftw3-3 libfftw3-dev libfftw3-doc
             DFLAGS='-D__OPENMP -D__FFTW3 -D__MPI -D__SCALAPACK' FFT_LIBS='-lfftw3'  ./configure --enable-openmp
             make pw
