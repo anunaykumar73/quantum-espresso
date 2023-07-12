@@ -7,6 +7,7 @@ jobs:
     container:
       image: espressofoundation/ubuntu:latest
     steps:
+      - uses: actions/checkout@v3
       - run: |
             apt-get install -y libfftw3-3 libfftw3-dev libfftw3-doc
             ls -la
