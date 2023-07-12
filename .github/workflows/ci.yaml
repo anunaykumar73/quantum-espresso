@@ -8,7 +8,6 @@ jobs:
       image: espressofoundation/ubuntu:latest
     steps:
       - run: |
-            apt-get install -y libfftw3-3 libfftw3-dev libfftw3-doc
+            apt-get install -y libfftw3-3 libfftw3-dev libfftw3-doc git
             DFLAGS='-D__OPENMP -D__FFTW3 -D__MPI -D__SCALAPACK' FFT_LIBS='-lfftw3'  ./configure --enable-openmp
             make pw
-            
