@@ -5,11 +5,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     container:
-      image: espressofoundation/ubuntu:latest
+      image: ubuntu:latest
     steps:
       - uses: actions/checkout@v3
       - run: |
-            apt-get install -y libfftw3-3 libfftw3-dev libfftw3-doc
+            apt-get install -y libfftw3-3 libfftw3-dev libfftw3-doc git
             ls -la
             DFLAGS='-D__OPENMP -D__FFTW3 -D__MPI -D__SCALAPACK' FFT_LIBS='-lfftw3'  ./configure --enable-openmp
             make pw
